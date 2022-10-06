@@ -14,6 +14,7 @@ class ScrapController extends Controller
         $url = $request->url;
         $parsed = $this->get_string_between($url, 'course/', '/?');
         $uniqueName = str_replace('?c', '', $parsed);
+        $uniqueName = str_replace('/', '-', $uniqueName);
 
         $page = $client->request('GET', $url);
         $title = $page->filter('.clp-lead__title')->text();
@@ -72,6 +73,7 @@ class ScrapController extends Controller
         $url = $request->url;
         $parsed = $this->get_string_between($url, 'com/', '');
         $uniqueName = $parsed;
+        $uniqueName = str_replace('/', '-', $uniqueName);
 
         $page = $client->request('GET', $url);
         $title = $page->filter('.productTopHeading')->text();
