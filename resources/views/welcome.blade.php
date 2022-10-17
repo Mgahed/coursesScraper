@@ -25,6 +25,7 @@
                     id="site" name="site">
                 <option value="udemy">Udemy</option>
                 <option value="eduonix">Eduonix</option>
+                <option value="alison">Alison</option>
             </select>
         </div>
         <br>
@@ -100,6 +101,8 @@
             requestLink = "{{route('scrape.udemy')}}";
         } else if (site === 'eduonix') {
             requestLink = "{{route('scrape.eduonix')}}";
+        } else if (site === 'alison') {
+            requestLink = "{{route('scrape.alison')}}";
         } else {
             alert('Please Select Site');
             return false;
