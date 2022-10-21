@@ -8,6 +8,27 @@ use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class ScrapController extends Controller
 {
+    public function getImg($imgUrl)
+    {
+        // make post request to the url with 2 keys and values using guzzle
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', 'https://thumbsnap.com/api/upload', [
+            'multipart' => [
+                [
+                    'name' => 'key',
+                    'contents' => '00002372f4f4ff7148f857ec88f74ec0',
+                ],
+                [//'media' => fopen('https://img-c.udemycdn.com/course/240x135/3540520_a25f_7.jpg', 'r'),//$img,
+                    'name' => 'media',
+                    'contents' => fopen($imgUrl, 'r'),
+                ],
+            ],
+        ]);
+        // get the response body
+        $body = json_decode($response->getBody()->getContents(), true)['data']['media'];
+        return $body;
+    }
+
     public function udemy(Request $request)
     {
         $client = new Client();
@@ -31,6 +52,7 @@ class ScrapController extends Controller
         }
 //        $description_en = "<div class='container'>" . $page->filter('.component-margin.what-you-will-learn--what-will-you-learn--mnJ5T .show-more--content--2BLF7.show-more--with-gradient--2hRXX')->html();
         $img = $page->filter('.intro-asset--img-aspect--1UbeZ img')->attr('src');
+        $img = $this->getImg($img);
         $category = $page->filter('.topic-menu')->html();
         $href_count = substr_count($category, "href");
         if ($href_count === 5) {
@@ -88,6 +110,7 @@ class ScrapController extends Controller
             }
         }
         $img = $page->filter('meta[property="og:image"]')->attr('content');
+        $img = $this->getImg($img);
         /*$category = $page->filter('.topic-menu')->html();
         $href_count = substr_count($category, "href");
         if ($href_count === 5) {
@@ -145,6 +168,7 @@ class ScrapController extends Controller
         }
         $description_en .= '<br><br>' . $page->filter('.outcome-content-inner')->html();
         $img = $page->filter('.brief__image img')->attr('data-src');
+        $img = $this->getImg($img);
         /*$category = $page->filter('.topic-menu')->html();
         $href_count = substr_count($category, "href");
         if ($href_count === 5) {

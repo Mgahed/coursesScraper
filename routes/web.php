@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/scrape-udemy',[ScrapController::class,'udemy'])->name('scrape.udemy');
-Route::get('/scrape-eduonix',[ScrapController::class,'eduonix'])->name('scrape.eduonix');
-Route::get('/scrape-alison',[ScrapController::class,'alison'])->name('scrape.alison');
+Route::get('/test/{url}', [ScrapController::class, 'getImg'])->name('test');
+
+Route::get('/scrape-udemy', [ScrapController::class, 'udemy'])->name('scrape.udemy');
+Route::get('/scrape-eduonix', [ScrapController::class, 'eduonix'])->name('scrape.eduonix');
+Route::get('/scrape-alison', [ScrapController::class, 'alison'])->name('scrape.alison');
