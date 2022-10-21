@@ -21,6 +21,7 @@ class ScrapController extends Controller
 //        $description_en = $page->filter('div[data-purpose="safely-set-inner-html:description:description"]')->html();
         try {
             $description_en = "<div class='container'>" . $page->filter('div[data-purpose="safely-set-inner-html:description:description"]')->html();
+            $description_en .= "<hr><div class='container'>" . $page->filter('.component-margin.what-you-will-learn--what-will-you-learn--mnJ5T .what-you-will-learn--content-spacing--3btHJ')->html();
         } catch (\Exception $e) {
             try {
                 $description_en = "<div class='container'>" . $page->filter('.component-margin.what-you-will-learn--what-will-you-learn--mnJ5T .what-you-will-learn--content-spacing--3btHJ')->html();
