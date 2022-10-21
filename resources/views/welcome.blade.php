@@ -145,6 +145,9 @@
         document.execCommand("copy");
         window.getSelection().removeAllRanges();// to deselect
         alert('Copied');
+        if (containerid === 'imgLink') {
+            window.open('https://www.linkpicture.com/en/?set=en', '_blank');
+        }
     }
 </script>
 </body>

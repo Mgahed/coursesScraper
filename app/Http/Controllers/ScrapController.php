@@ -20,7 +20,7 @@ class ScrapController extends Controller
         $title = $page->filter('.clp-lead__title')->text();
 //        $description_en = $page->filter('div[data-purpose="safely-set-inner-html:description:description"]')->html();
         try {
-            $description_en = "<div class='container'>" . $page->filter('.component-margin.what-you-will-learn--what-will-you-learn--mnJ5T .show-more--content--2BLF7.show-more--with-gradient--2hRXX')->html();
+            $description_en = "<div class='container'>" . $page->filter('div[data-purpose="safely-set-inner-html:description:description"]')->html();
         } catch (\Exception $e) {
             try {
                 $description_en = "<div class='container'>" . $page->filter('.component-margin.what-you-will-learn--what-will-you-learn--mnJ5T .what-you-will-learn--content-spacing--3btHJ')->html();
