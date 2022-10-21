@@ -20,8 +20,8 @@ class ScrapController extends Controller
         $title = $page->filter('.clp-lead__title')->text();
 //        $description_en = $page->filter('div[data-purpose="safely-set-inner-html:description:description"]')->html();
         try {
-            $description_en = "<div class='container'>" . $page->filter('div[data-purpose="safely-set-inner-html:description:description"]')->html();
-            $description_en .= "<hr><div class='container'>" . $page->filter('.component-margin.what-you-will-learn--what-will-you-learn--mnJ5T .what-you-will-learn--content-spacing--3btHJ')->html();
+            $description_en = "<div class='container'>" . $page->filter('.component-margin.what-you-will-learn--what-will-you-learn--mnJ5T .what-you-will-learn--content-spacing--3btHJ')->html();
+            $description_en .= "<hr><hr><div class='container'>" . $page->filter('div[data-purpose="safely-set-inner-html:description:description"]')->html();
         } catch (\Exception $e) {
             try {
                 $description_en = "<div class='container'>" . $page->filter('.component-margin.what-you-will-learn--what-will-you-learn--mnJ5T .what-you-will-learn--content-spacing--3btHJ')->html();
@@ -54,8 +54,8 @@ class ScrapController extends Controller
         $description_ar = str_replace('< br>', '', $description_ar);
         $description_ar = str_replace('< br >', '', $description_ar);
         $description_ar = str_replace('<br >', '', $description_ar);
-        $description_en = "<h5>Dear reader, you will learn in this course a set of lessons, namely:</h5>" . $description_en;
-        $description_ar = "<h5>عزيزي القارئ ستتعلم في هذه الدورة مجموعة من الدروس وهي:</h5>" . $description_ar;
+        $description_en = "<p>Welcome dear follower of the (Journey of Learn) website, we offer courses with coupons available for the first 1000 free registration only and other coupons for a limited time. We explain the short and long description of the courses in order to know the lessons that you will learn easily and easily:</p>" . $description_en . "<p>What are the basic requirements to enter the course and register for it on our website? Learning Journey:</p><p>I press the green button (Get the course to enter the site and register)</p><p>You must have an email (mail account) that you remember for yourself and also you must remember the password of the email that you will register with, and if you do not have an email account, it is better to create an account (Gmail)</p>";
+        $description_ar = "<p>أهلا بك عزيزي المتابع لموقع (Journey of Learn) نقدم دورات بكوبونات متاحة لاول 1000 تسجيل مجاني فقط وكوبونات اخري لفترة محدودة فاذا كنت تريد ان تحصل علي كل الكورسات علي موقعنا وان تكون اول المسجلين في الكورسات المجانية قم بتسجيل الدخول أوقم بالدخول علي وسائل التواصل الاجتماعي وخصوصا التليجرام نوضح الوصف المختصر والطويل  للدورات لكي تعرف الدروس التي سوف تتعلمها بسهولة ويسر :</p>" . $description_ar . "<p>ما هي المتطلبات الأساسية لدخول الدورة والتسجيل فيها على موقعنا؟ رحلة تعليمية:</p><p>أضغط على الزر الأخضر (احصل على الدورة للدخول إلى الموقع والتسجيل)</p><p>يجب أن يكون لديك بريد إلكتروني (حساب بريد) تتذكره لنفسك وأيضًا يجب أن تتذكر كلمة مرور البريد الإلكتروني الذي ستسجل به ، وإذا لم يكن لديك حساب بريد إلكتروني ، فمن الأفضل إنشاء حساب (Gmail)</p>";
 
         return response()->json([
             'name' => $title,
@@ -109,8 +109,8 @@ class ScrapController extends Controller
         $description_ar = str_replace('< br>', '', $description_ar);
         $description_ar = str_replace('< br >', '', $description_ar);
         $description_ar = str_replace('<br >', '', $description_ar);
-        $description_en = "<h5>Dear reader, you will learn in this course a set of lessons, namely:</h5>" . $description_en;
-        $description_ar = "<h5>عزيزي القارئ ستتعلم في هذه الدورة مجموعة من الدروس وهي:</h5>" . $description_ar;
+        $description_en = "<p>Welcome dear follower of the (Journey of Learn) website, we offer courses with coupons available for the first 1000 free registration only and other coupons for a limited time. We explain the short and long description of the courses in order to know the lessons that you will learn easily and easily:</p>" . $description_en . "<p>What are the basic requirements to enter the course and register for it on our website? Learning Journey:</p><p>I press the green button (Get the course to enter the site and register)</p><p>You must have an email (mail account) that you remember for yourself and also you must remember the password of the email that you will register with, and if you do not have an email account, it is better to create an account (Gmail)</p>";
+        $description_ar = "<p>أهلا بك عزيزي المتابع لموقع (Journey of Learn) نقدم دورات بكوبونات متاحة لاول 1000 تسجيل مجاني فقط وكوبونات اخري لفترة محدودة فاذا كنت تريد ان تحصل علي كل الكورسات علي موقعنا وان تكون اول المسجلين في الكورسات المجانية قم بتسجيل الدخول أوقم بالدخول علي وسائل التواصل الاجتماعي وخصوصا التليجرام نوضح الوصف المختصر والطويل  للدورات لكي تعرف الدروس التي سوف تتعلمها بسهولة ويسر :</p>" . $description_ar . "<p>ما هي المتطلبات الأساسية لدخول الدورة والتسجيل فيها على موقعنا؟ رحلة تعليمية:</p><p>أضغط على الزر الأخضر (احصل على الدورة للدخول إلى الموقع والتسجيل)</p><p>يجب أن يكون لديك بريد إلكتروني (حساب بريد) تتذكره لنفسك وأيضًا يجب أن تتذكر كلمة مرور البريد الإلكتروني الذي ستسجل به ، وإذا لم يكن لديك حساب بريد إلكتروني ، فمن الأفضل إنشاء حساب (Gmail)</p>";
 
         return response()->json([
             'name' => $title,
@@ -166,8 +166,8 @@ class ScrapController extends Controller
         $description_ar = str_replace('< br>', '', $description_ar);
         $description_ar = str_replace('< br >', '', $description_ar);
         $description_ar = str_replace('<br >', '', $description_ar);
-        $description_en = "<h5>Dear reader, you will learn in this course a set of lessons, namely:</h5>" . $description_en;
-        $description_ar = "<h5>عزيزي القارئ ستتعلم في هذه الدورة مجموعة من الدروس وهي:</h5>" . $description_ar;
+        $description_en = "<p>Welcome dear follower of the (Journey of Learn) website, we offer courses with coupons available for the first 1000 free registration only and other coupons for a limited time. We explain the short and long description of the courses in order to know the lessons that you will learn easily and easily:</p>" . $description_en . "<p>What are the basic requirements to enter the course and register for it on our website? Learning Journey:</p><p>I press the green button (Get the course to enter the site and register)</p><p>You must have an email (mail account) that you remember for yourself and also you must remember the password of the email that you will register with, and if you do not have an email account, it is better to create an account (Gmail)</p>";
+        $description_ar = "<p>أهلا بك عزيزي المتابع لموقع (Journey of Learn) نقدم دورات بكوبونات متاحة لاول 1000 تسجيل مجاني فقط وكوبونات اخري لفترة محدودة فاذا كنت تريد ان تحصل علي كل الكورسات علي موقعنا وان تكون اول المسجلين في الكورسات المجانية قم بتسجيل الدخول أوقم بالدخول علي وسائل التواصل الاجتماعي وخصوصا التليجرام نوضح الوصف المختصر والطويل  للدورات لكي تعرف الدروس التي سوف تتعلمها بسهولة ويسر :</p>" . $description_ar . "<p>ما هي المتطلبات الأساسية لدخول الدورة والتسجيل فيها على موقعنا؟ رحلة تعليمية:</p><p>أضغط على الزر الأخضر (احصل على الدورة للدخول إلى الموقع والتسجيل)</p><p>يجب أن يكون لديك بريد إلكتروني (حساب بريد) تتذكره لنفسك وأيضًا يجب أن تتذكر كلمة مرور البريد الإلكتروني الذي ستسجل به ، وإذا لم يكن لديك حساب بريد إلكتروني ، فمن الأفضل إنشاء حساب (Gmail)</p>";
 
         return response()->json([
             'name' => $title,
