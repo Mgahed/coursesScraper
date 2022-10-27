@@ -51,7 +51,7 @@ class ScrapController extends Controller
             }
         }
 //        $description_en = "<div class='container'>" . $page->filter('.component-margin.what-you-will-learn--what-will-you-learn--mnJ5T .show-more--content--2BLF7.show-more--with-gradient--2hRXX')->html();
-        $img = $page->filter('.intro-asset--img-aspect--1UbeZ img')->attr('src');
+        $img = $page->filter('meta[property="og:image"]')->attr('content');
         $img = $this->getImg($img);
         $category = $page->filter('.topic-menu')->html();
         $href_count = substr_count($category, "href");
